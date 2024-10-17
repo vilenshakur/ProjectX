@@ -17,9 +17,9 @@ document.addEventListener("DOMContentLoaded", function() {
     let roundCount = 0;
 
   const imagePairs = [
-        ['./img/Али1.jpg', './img/Тема1.jpg'],
-        ['./img/Дамиль3.jpg', './img/я2.jpg'],
-        ['./img/негр1.jpg', './img/Тема2.jpg'],
+        ['./Али1.jpg', './Тема1.jpg'],
+        ['./Дамиль3.jpg', './я2.jpg'],
+        ['./негр1.jpg', './Тема2.jpg'],
     ];
 
     const votes = [0, 0, 0, 0, 0, 0]; // Счетчики голосов для каждого человека
