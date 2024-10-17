@@ -1,0 +1,287 @@
+/* Основные стили для страницы */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0d0d0d;
+    color: #fff;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Заголовок с анимацией появления */
+.fade-in-title {
+    font-size: 48px;
+    text-align: center;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    letter-spacing: 2px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Анимированный фон */
+body::before {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(255, 0, 153, 0.6), rgba(0, 255, 204, 0.6));
+    top: -50%;
+    left: -50%;
+    animation: moveBackground 15s infinite linear;
+    z-index: -1;
+}
+
+@keyframes moveBackground {
+    0% {
+        transform: rotate(0deg) translate(-50%, -50%);
+    }
+
+    100% {
+        transform: rotate(360deg) translate(-50%, -50%);
+    }
+}
+
+/* Анимация появления и движения контейнера */
+.slide-in {
+    opacity: 0;
+    transform: translateY(100px);
+    animation: slideIn 1s forwards;
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Bounce-анимация для картинок */
+.bounce {
+    animation: bounceIn 1.5s ease infinite;
+}
+
+@keyframes bounceIn {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Пульсирующее сообщение о голосовании */
+.pulse {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+    animation: pulseEffect 1s infinite;
+}
+
+@keyframes pulseEffect {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Кнопка плавно появляется снизу */
+.slide-up {
+      
+    
+    transform: translateY(20px);
+    animation: slideUp 1.5s forwards;
+    
+}
+button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+button:focus {
+    outline: none;
+}
+
+.button-highlighted {
+    animation: highlightButton 0.5s infinite alternate;
+}
+
+@keyframes highlightButton {
+    0% {
+        background-color: #2ecc71;
+    }
+
+    100% {
+        background-color: #27ae60;
+    }
+}
+
+
+
+#next-round.show {
+   
+    transform: translateY(0);
+    /* Убираем смещение */
+    display: flex;
+
+   
+}
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Стили контейнера изображений */
+.comparison-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 20px;
+}
+
+/* Стили для картинок */
+.image-container {
+    width: 250px;
+    height: 350px;
+    overflow: hidden;
+    border: 5px solid transparent;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    /* для добавления эффекта фона */
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* Добавление эффекта при наведении */
+.image-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+    animation: shake 0.5s forwards;
+    /* добавлено тряска при наведении */
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(0);
+    }
+
+    25% {
+        transform: translate(-2px, 2px);
+    }
+
+    50% {
+        transform: translate(2px, -2px);
+    }
+
+    75% {
+        transform: translate(-2px, -2px);
+    }
+
+    100% {
+        transform: translate(0);
+    }
+}
+
+/* Зеленая рамка после выбора */
+.image-container.voted {
+    border-color: #28a745;
+}
+
+/* Таблица лидеров с анимацией */
+.leaderboard {
+    display: none;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 2s ease-in-out;
+   
+}
+
+.vote-summary {
+    margin: 10px 0;
+    /* отступ между элементами */
+}
+
+.vote-count {
+    font-size: 24px;
+    color: #ecf0f1;
+    font-weight: bold;
+}
+
+/* Анимация плавного появления элементов */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Новые стили для адаптивного дизайна */
+@media (max-width: 768px) {
+    .comparison-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .image-container {
+        width: 80%;
+        height: auto;
+    }
+
+    .fade-in-title {
+        font-size: 32px;
+    }
+
+    .vote-message,
+    .vote-count {
+        font-size: 18px;
+    }
+
+    .button {
+        width: 100%;
+        font-size: 18px;
+    }
+}
